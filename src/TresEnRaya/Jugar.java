@@ -11,9 +11,10 @@ package TresEnRaya;
 
 
 import javax.management.ObjectInstance;
+import java.util.Scanner;
 
 public class Jugar {
-
+    public static Scanner sc=new Scanner(System.in);
 
     public static void main(String[] args) {
         Tablero tablero=new Tablero();//creamos un tablero
@@ -45,4 +46,13 @@ public class Jugar {
 }
 
     private static boolean pedirOpcion() {
+        boolean jugar=false;
+        char teclado ='s';
+        System.out.println("Indique si quiere jugar al tres en raya: Sí/No");
+        try {
+            teclado=Character.toLowerCase(sc.nextLine().charAt(0));
+            if (teclado=='s')// --> por aqui me he quedado
+        }
+        catch (Exception e){
+    }
     }
