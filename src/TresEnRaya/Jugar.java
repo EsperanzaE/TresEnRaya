@@ -16,20 +16,28 @@ public class Jugar {
 
 
     public static void main(String[] args) {
-        Tablero tablero=new Tablero();;
-        boolean jugar=pedirOpcion();
+        Tablero tablero=new Tablero();//creamos un tablero
+        boolean jugar=pedirOpcion();//pedimos al usuario si quiere jugar o no
         boolean hayGanador=false, tableroLleno=false;
-        tablero.mostrar();
+        tablero.mostrar();//mostramos el tablero vacío
 
-        while (jugar){
-        while (!tableroLleno && !hayGanador ){
+        while (jugar){//mientras quiera seguir jugando partidas
+        while (!tableroLleno && !hayGanador ){//mientras el tablero no esté lleno o no haya ningún ganador
 
-            tablero.avisaAJugador(tablero.isJugador());
-            tablero.mueveJugador (tablero.isJugador());
+            tablero.avisaAJugador(tablero.isJugador());//avisa al jugador para que mueva y recoge la opción
+            tablero.mueveJugador (tablero.isJugador());//El jugador mueve. Se valida que el movimiento sea válido
 
-            hayGanador=tablero.comprobarSiGanador();
+            hayGanador=tablero.comprobarSiGanador();//se comprueba si con la última jugada hay algún ganador
             if (!hayGanador) {
-                tableroLleno = tablero.comprobarSiLleno();
+                tableroLleno = tablero.comprobarSiLleno();//si no hay ganador se comprueba si el tablero ya está lleno
+                if (!tableroLleno){
+                    if (tablero.isJugador()){
+                        tablero.setJugador(false);
+                    }
+                    else {
+                        tablero.setJugador(true);
+                    }
+                }
             }
         }
         jugar=pedirOpcion();

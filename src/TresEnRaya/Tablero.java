@@ -13,8 +13,12 @@ public class Tablero {
         jugador=true;
     }
 
-    public boolean isJugador() {
+    public boolean isJugador() {//getter del booleano JUgador
         return jugador;
+    }
+
+    public void setJugador(boolean jugador) {
+        this.jugador = jugador;
     }
 
     private void limpiarTablerlo(char[][] tablero) {
